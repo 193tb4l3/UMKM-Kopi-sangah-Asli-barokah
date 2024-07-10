@@ -46,51 +46,38 @@
         <h2>Pilih Metode Pembayaran</h2>
         <form id="paymentForm" action="proses_pembayaran.php" method="POST">
             <label>
-                <input type="radio" name="metode_pembayaran" value="brimo">
-                BRImo
+                <input type="radio" name="metode_pembayaran" value="ewalet">
+                Wealet (Dana GoPay, COD/Di tempat)
             </label>
             <label>
-                <input type="radio" name="metode_pembayaran" value="wealet">
-                Wealet (Dana GoPay)
-            </label>
-            <label>
-                <input type="radio" name="metode_pembayaran" value="cash">
-                Cash
+                <input type="radio" name="metode_pembayaran" value="tunai">
+                Tunai (Di Tempat)
             </label>
 
-            <label for="jumlah_barang">Jumlah Barang</label>
-            <input type="text" id="jumlah_barang" name="jumlah_barang" required>
+            <label for="nama_pelanggan">Nama</label>
+            <input type="text" id="nama_pelanggan" name="nama_pelanggan" required>
 
-            <label for="alamat_pengiriman">Alamat Pengiriman</label>
-            <textarea id="alamat_pengiriman" name="alamat_pengiriman" required></textarea>
-
-            <label for="email">Alamat Email</label>
-            <input type="email" id="email" name="email" required>
+            <label for="alamat">Alamat</label>
+            <textarea id="alamat" name="alamat" required></textarea>
 
             <label for="wa">Nomor WhatsApp (WA)</label>
             <input type="text" id="wa" name="wa" required>
 
-            <input type="hidden" id="rekening" name="rekening" value="469201048468536">
-            <input type="hidden" id="nama_rekening" name="nama_rekening" value="Kopi Barokah">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="jumlah_barang">Jumlah Gram Kopi yang Dipesan</label>
+            <select id="jumlah_barang" name="jumlah_barang" required>
+                <option value="100">100 Gram (Rp 15.000)</option>
+                <option value="300">300 Gram (Rp 45.000)</option>
+                <option value="500">500 Gram (Rp 75.000)</option>
+            </select>
 
             <input type="submit" value="Lanjutkan Pembayaran" class="btn btn-primary">
         </form>
     </div>
-
-    <script>
-        document.getElementById('paymentForm').addEventListener('submit', function(event) {
-            var metodePembayaran = document.querySelector('input[name="metode_pembayaran"]:checked').value;
-            if (metodePembayaran === 'brimo') {
-                window.location.href = 'brimo://open';
-            } else if (metodePembayaran === 'wealet') {
-                window.location.href = 'dana://open';
-            } else if (metodePembayaran === 'cash') {
-                // Tambahkan tindakan yang sesuai untuk pembayaran tunai di sini
-                alert('Silakan hubungi kami untuk pembayaran tunai.');
-            }
-
-            event.preventDefault(); // Menghentikan pengiriman formulir
-        });
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
